@@ -17,4 +17,3 @@ jobs:
     steps:
       - name: Simulate Deployment
         run: echo "deployed!"
-        working-directory: helloworld_app
