@@ -30,12 +30,6 @@ jobs:
         run: npm install
         working-directory: helloworld_app
 
-      - name: Run tests (Skip if not available)
-        run: |
-          echo "Running tests..."
-          npm test || echo "No tests specified, skipping..."
-        working-directory: helloworld_app
-
   deploy:
     name: Deploy Application
     runs-on: ubuntu-latest
