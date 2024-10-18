@@ -28,12 +28,15 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: helloworld_app
 
       - name: Run tests
         run: npm test
+        working-directory: helloworld_app
 
       - name: Build application
         run: npm run build
+        working-directory: helloworld_app
 
   deploy:
     name: Deploy Application
@@ -52,11 +55,14 @@ jobs:
 
       - name: Install dependencies
         run: npm install --only=production
+        working-directory: helloworld_app
 
       - name: Build Docker image
         run: docker build -t hello-world:${GITHUB_SHA} .
+        working-directory: helloworld_app
 
       - name: Deploy to Production
         run: |
           echo "Deploying application to production..."
           # ここでデプロイコマンドやスクリプトを実行
+        working-directory: helloworld_app
